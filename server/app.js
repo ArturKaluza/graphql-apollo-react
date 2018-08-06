@@ -1,10 +1,13 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql'); 
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const schema = require('./schema/schema');
 
 const app = express();
+
+app.use(cors());
 
 mongoose.connect('mongodb://artur:123qwerty@ds211592.mlab.com:11592/gql-netninja')
 mongoose.connection.once('open', () => {
